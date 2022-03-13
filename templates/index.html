@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Employee Data</h1>
+    <a href="insert">Add New Employee</a>
+    <table style="width:100%;">
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+        </tr>
+        {%for i in data%}
+        <tr style="text-align: center;">
+            {% if i[2]=='Analyst' %}
+                {% set val='blue' %}
+            {% elif i[2]=='Developer' %}
+                {% set val='red' %}
+            {% elif i[2]=='Technical' %}
+                {% set val='yellow' %}
+            {% elif i[2]=='Database' %}
+                {% set val='green' %}
+            {% endif %}
+            <td>{{i[1]}}</td>
+            <td style="color:{{val}};">{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td><a href="/update/{{i[0]}}">Update</a></td>
+            <td><a href="/delete/{{i[0]}}">Delete</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+</body>
+</html>

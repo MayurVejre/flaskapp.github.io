@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/updaterecord/{{data[0]}}" method="post">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" name="name" value="{{data[1]}}"/></td>
+            </tr>
+            <tr>
+                <td>Department:</td>
+                <td>
+                    <select name="department">
+                        <option>Analyst</option>
+                        <option {%if data[2]=='Developer'%}selected{%endif%}>Developer</option>
+                        <option {%if data[2]=='Technical'%}selected{%endif%}>Technical</option>
+                        <option {%if data[2]=='Database'%}selected{%endif%}>Database</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Salary</td>
+                <td><input type="text" name="salary" value="{{data[3]}}"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Update"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
